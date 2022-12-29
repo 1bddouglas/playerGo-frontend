@@ -1,9 +1,41 @@
+import { useEffect, useState } from "react";
 import "./Main.css";
 
 const Main = () => {
   const currentDate = new Date();
-  const dateString = currentDate.toDateString();
+  const hoursValue = currentDate.getHours();
+  const dayValue = currentDate.getDay();
 
+  const [randomRule, setRandomRule] = useState("");
+
+  // day number to string name
+  const dayOfTheWeekConversion = () => {
+    if (dayValue === 0) {
+      return "Sunday";
+    } else if (dayValue === 1) {
+      return "Monday";
+    } else if (dayValue === 2) {
+      return "Tuesday";
+    } else if (dayValue === 3) {
+      return "Wednesday";
+    } else if (dayValue === 4) {
+      return "Thursday";
+    } else if (dayValue === 5) {
+      return "Friday";
+    } else if (dayValue === 6) {
+      return "Saturday";
+    }
+  };
+  // time number into AM/PM
+  const hourConversion = () => {
+    if (hoursValue < 12) {
+      return `${hoursValue} A.M.`;
+    } else if (hoursValue > 12) {
+      return `${hoursValue - 12} P.M.`;
+    } else {
+      return `${hoursValue} P.M.`;
+    }
+  };
   const sundayArray = [
     "Most Recently Drove ",
     "Most Recently Ate at a Restaurant ",
@@ -193,9 +225,57 @@ const Main = () => {
     "Most Recently Had Work",
   ];
 
+  // array to hold the entire week of arrays
+  const mainArray = [
+    sundayArray,
+    mondayArray,
+    tuesdayArray,
+    wednesdayArray,
+    thursdayArray,
+    fridayArray,
+    saturdayArray,
+  ];
+
+  //create a function to select an instruction based on day and time
+  const instructionSelector = () => {
+    let instruction = "";
+    mainArray.forEach((array) => {
+      if (mainArray.indexOf(array) === dayValue) {
+        instruction = array[hoursValue];
+      }
+    });
+    return instruction;
+  };
+
+  // concatonate our arrays into one larger array for random selection
+  const weekdayArray = sundayArray.concat(
+    mondayArray,
+    tuesdayArray,
+    wednesdayArray,
+    thursdayArray,
+    fridayArray,
+    saturdayArray
+  );
+
+  // function to generate random instructions
+  const randomizeInstruction = () => {
+    setRandomRule(
+      weekdayArray[Math.floor(Math.random() * weekdayArray.length)]
+    );
+    console.log(randomRule);
+  };
+
   return (
     <div className="Main">
-      <p></p>
+      <p>
+        The time is {hourConversion()} on {dayOfTheWeekConversion()}
+      </p>
+      <p>Player-Go-First Instructions:</p>
+      <p>{instructionSelector()}</p>
+      <button className="random-button" onClick={randomizeInstruction}>
+        Choose a random rule
+      </button>
+      <p>{randomRule}</p>
     </div>
   );
 };
