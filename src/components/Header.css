@@ -1,0 +1,16 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #579bb1;
+  border-bottom: 5px solid #f8f4ea;
+}
+
+.Header h1 {
+  padding: 20px;
+}
+
+.Header h2 {
+  padding-bottom: 10px;
+}

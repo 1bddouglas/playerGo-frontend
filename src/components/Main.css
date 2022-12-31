@@ -1,0 +1,42 @@
+.Main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  /* padding-top: 150px; */
+  background-color: #e1d7c6;
+  height: calc(100vh - 124px);
+}
+
+.Main p {
+  padding: 10px;
+}
+
+.Main .time {
+  font-size: 30px;
+}
+
+.Main .instructions-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 20px;
+}
+
+.Main .instructions {
+  padding-bottom: 20px;
+  font-style: italic;
+}
+
+.Main button {
+  border-radius: 50px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: #579bb1;
+  margin-bottom: 10px;
+}
+
+.Main .random-rule {
+  height: 20px;
+  font-style: italic;
+}

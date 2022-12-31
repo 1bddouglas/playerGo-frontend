@@ -267,15 +267,18 @@ const Main = () => {
 
   return (
     <div className="Main">
-      <p>
+      <p className="time">
         The time is {hourConversion()} on {dayOfTheWeekConversion()}
       </p>
-      <p>Player-Go-First Instructions:</p>
-      <p>{instructionSelector()}</p>
-      <button className="random-button" onClick={randomizeInstruction}>
-        Choose a random rule
-      </button>
-      <p>{randomRule}</p>
+      <div className="instructions-div">
+        <h3>Player-Go-First Instructions:</h3>
+        <p className="instructions">{instructionSelector()}</p>
+        <button className="random-button" onClick={randomizeInstruction}>
+          Choose a random rule
+        </button>
+
+        <p className="random-rule">{randomRule}</p>
+      </div>
     </div>
   );
 };

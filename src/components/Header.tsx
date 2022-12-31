@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header className="Header">
       <h1>Player Go</h1>
-      <p>Choose Your First Player</p>
+      <h2>Choose Your First Player</h2>
     </header>
   );
 };
