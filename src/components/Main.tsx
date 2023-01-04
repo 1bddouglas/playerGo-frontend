@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 import "./Main.css";
 
 const Main = () => {
   const currentDate = new Date();
   const hoursValue = currentDate.getHours();
   const dayValue = currentDate.getDay();
+  const { user } = useContext(AuthContext);
+
+  console.log(user);
 
   const [randomRule, setRandomRule] = useState("");
 
@@ -276,8 +281,9 @@ const Main = () => {
         <button className="random-button" onClick={randomizeInstruction}>
           Choose a random rule
         </button>
-
         <p className="random-rule">{randomRule}</p>
+
+        {user?.uid === "HwgRKuriskSiDBwFZUFQvw3fiZW2" && <p>Hello World</p>}
       </div>
     </div>
   );
