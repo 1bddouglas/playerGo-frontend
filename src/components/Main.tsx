@@ -8,7 +8,7 @@ const Main = () => {
   const hoursValue = currentDate.getHours();
   const dayValue = currentDate.getDay();
   const { user } = useContext(AuthContext);
-  const adminID = process.env.GOOGLE_UID || "";
+  const adminID = process.env.REACT_APP_AUTH_UID || "";
 
   console.log(user);
 
