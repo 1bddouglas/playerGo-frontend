@@ -8,6 +8,7 @@ const Main = () => {
   const hoursValue = currentDate.getHours();
   const dayValue = currentDate.getDay();
   const { user } = useContext(AuthContext);
+  const adminID = process.env.GOOGLE_UID || "";
 
   console.log(user);
 
@@ -283,7 +284,7 @@ const Main = () => {
         </button>
         <p className="random-rule">{randomRule}</p>
 
-        {user?.uid === "HwgRKuriskSiDBwFZUFQvw3fiZW2" && <p>Hello World</p>}
+        {user?.uid === adminID && <p>Hello World</p>}
       </div>
     </div>
   );
