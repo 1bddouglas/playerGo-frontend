@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 import Main from "./components/Main";
 import Header from "./components/Header";
+import Submissions from "./components/Submissions";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="*" element={<Navigate to={"/"} />} />
+          <Route path="/submissions" element={<Submissions />} />
         </Routes>
       </Router>
     </div>
