@@ -285,9 +285,6 @@ const Main = () => {
           Choose a random rule
         </button>
         <p className="random-rule">{randomRule}</p>
-
-        {showForm && <SubmissionForm />}
-
         <button
           onClick={() => {
             setShowForm(!showForm);
@@ -295,7 +292,7 @@ const Main = () => {
         >
           Submit a Rule!
         </button>
-
+        {showForm && <SubmissionForm />}
         {user?.uid === adminID && (
           <Link to={"/submissions"}>Manage Submissions</Link>
         )}
