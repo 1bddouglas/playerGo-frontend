@@ -6,19 +6,26 @@ import SingleRule from "./SingleRule";
 import "./Submissions.css";
 
 const Submissions = () => {
-  const [submissions, setSubmission] = useState<Rule[]>([]);
+  const [submissions, setSubmissions] = useState<Rule[]>([]);
 
   useEffect(() => {
-    getAllSubmissions().then((res) => {
-      setSubmission(res);
-    });
+    if (submissions) {
+      getAllSubmissions().then((res) => {
+        setSubmissions(res);
+      });
+    }
   }, []);
 
   return (
     <div className="Submissions">
       <ul className="submission-list">
         {submissions.map((rule) => (
-          <SingleRule rule={rule} key={rule._id} />
+          <SingleRule
+            rule={rule}
+            key={rule._id}
+            submissions={submissions}
+            setSubmissions={setSubmissions}
+          />
         ))}
       </ul>
     </div>

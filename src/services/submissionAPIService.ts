@@ -21,3 +21,12 @@ export const createSubmission = (rule: Rule): Promise<Rule> => {
       console.log(err);
     });
 };
+
+export const deleteSubmission = (id: string): Promise<Rule> => {
+  return axios
+    .delete(`${baseURL}/matrix/${id}`)
+    .then((res) => res.data)
+    .catch((err) => {
+      console.log(err);
+    });
+};
