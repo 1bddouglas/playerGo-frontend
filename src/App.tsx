@@ -10,6 +10,7 @@ import {
 import Main from "./components/Main";
 import Header from "./components/Header";
 import Submissions from "./components/Submissions";
+import UserContent from "./components/UserContent";
 
 function App() {
   return (
@@ -18,8 +19,9 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="*" element={<Navigate to={"/"} />} />
           <Route path="/submissions" element={<Submissions />} />
+          <Route path="/user-rules" element={<UserContent />} />
+          <Route path="*" element={<Navigate to={"/"} />} />
         </Routes>
       </Router>
     </div>

@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import "./Main.css";
-import SubmissionForm from "./SubmissionForm";
 
 const Main = () => {
   const currentDate = new Date();
@@ -14,7 +13,6 @@ const Main = () => {
   console.log(user);
 
   const [randomRule, setRandomRule] = useState("");
-  const [showForm, setShowForm] = useState(false);
 
   // day number to string name
   const dayOfTheWeekConversion = () => {
@@ -285,14 +283,8 @@ const Main = () => {
           Choose a random rule
         </button>
         <p className="random-rule">{randomRule}</p>
-        <button
-          onClick={() => {
-            setShowForm(!showForm);
-          }}
-        >
-          Submit a Rule!
-        </button>
-        {showForm && <SubmissionForm />}
+        <Link to={"/user-rules"}>User Rules</Link>
+
         {user?.uid === adminID && (
           <Link to={"/submissions"}>Manage Submissions</Link>
         )}
