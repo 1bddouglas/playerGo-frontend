@@ -7,6 +7,11 @@ import "./UserContent.css";
 const UserContent = () => {
   const [showForm, setShowForm] = useState(false);
   const [showUserRules, setShowUserRules] = useState<Rule[]>([]);
+  const [showPending, setShowPending] = useState(false);
+
+  setTimeout(() => {
+    setShowPending(false);
+  }, 1500);
 
   useEffect(() => {
     getAllApproved().then((res) => setShowUserRules(res));
@@ -14,13 +19,6 @@ const UserContent = () => {
 
   return (
     <div className="UserContent">
-      <div className="user-rules">
-        <ul>
-          {showUserRules.map((rule) => (
-            <li>{rule.ruleText}</li>
-          ))}
-        </ul>
-      </div>
       <button
         onClick={() => {
           setShowForm(!showForm);
@@ -28,7 +26,27 @@ const UserContent = () => {
       >
         Submit a Rule!
       </button>
-      {showForm && <SubmissionForm />}
+      <div className="border-div">
+        <h2>User Submitted Rules:</h2>
+      </div>
+      <div className="user-rules">
+        <ol>
+          {showUserRules.map((rule) => (
+            <li>{rule.ruleText}</li>
+          ))}
+        </ol>
+      </div>
+      <div className="form-div">
+        {showForm && (
+          <SubmissionForm
+            setShowForm={setShowForm}
+            setShowPending={setShowPending}
+          />
+        )}
+        {showPending && (
+          <div className="pending-div">Your Submission is Pending</div>
+        )}
+      </div>
     </div>
   );
 };

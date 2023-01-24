@@ -17,6 +17,11 @@
   font-size: 30px;
 }
 
+.Main .border-div {
+  width: 80%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
 .Main .instructions-div {
   display: flex;
   flex-direction: column;
@@ -26,20 +31,64 @@
 }
 
 .Main .instructions {
+  font-size: 20px;
   padding-bottom: 20px;
   font-style: italic;
 }
 
+.Main .random-instructions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .Main button {
+  font-size: 17px;
   border-radius: 50px;
   border: 1px solid black;
   padding: 10px;
   background-color: #579bb1;
   margin-bottom: 10px;
   color: black;
+  cursor: pointer;
+}
+
+.Main .random-button {
+  margin-top: 20px;
+}
+
+.Main .link {
+  font-size: 17px;
+  text-decoration: none;
+  border-radius: 50px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: #579bb1;
+  margin-bottom: 10px;
+  color: black;
+  cursor: pointer;
+}
+
+.Main .create-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .Main .random-rule {
+  font-size: 20px;
   height: 20px;
   font-style: italic;
+  margin-bottom: 10px;
+}
+
+.Main .sign-in {
+  background-color: #e1d7c6;
+  border: none;
+  border-radius: 0px;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
 }

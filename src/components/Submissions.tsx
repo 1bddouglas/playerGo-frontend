@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { signOut } from "../firebaseConfig";
 import Rule from "../models/Rule";
 import { getAllSubmissions } from "../services/submissionAPIService";
 import SingleRule from "./SingleRule";
@@ -18,6 +19,7 @@ const Submissions = () => {
 
   return (
     <div className="Submissions">
+      <button onClick={signOut}>Sign out</button>
       <ul className="submission-list">
         {submissions.map((rule) => (
           <SingleRule

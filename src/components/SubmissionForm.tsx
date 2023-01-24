@@ -3,8 +3,14 @@ import Rule from "../models/Rule";
 import { createSubmission } from "../services/submissionAPIService";
 import "./SubmissionForm.css";
 
-const SubmissionForm = () => {
+interface Props {
+  setShowForm: (value: boolean) => void;
+  setShowPending: (value: boolean) => void;
+}
+
+const SubmissionForm = ({ setShowForm, setShowPending }: Props) => {
   const [rule, setRule] = useState("");
+
   const submitHandler = (e: FormEvent) => {
     e.preventDefault();
     setRule("");
@@ -16,6 +22,8 @@ const SubmissionForm = () => {
     createSubmission(newRule).then((res) => {
       console.log(res);
     });
+    setShowForm(false);
+    setShowPending(true);
   };
 
   return (

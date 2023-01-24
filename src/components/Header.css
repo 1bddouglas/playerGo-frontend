@@ -7,6 +7,11 @@
   border-bottom: 5px solid #f8f4ea;
 }
 
+.Header .logo {
+  text-decoration: none;
+  color: black;
+}
+
 .Header h1 {
   padding: 20px;
 }

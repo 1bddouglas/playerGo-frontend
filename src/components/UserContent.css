@@ -1,0 +1,59 @@
+.UserContent ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+.UserContent {
+  height: calc(100vh - 124px);
+  background-color: #e1d7c6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.UserContent h2 {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.UserContent .border-div {
+  width: 80%;
+  border-bottom: 1px solid black;
+}
+
+.UserContent li {
+  padding: 3px;
+  font-size: 17px;
+}
+
+.UserContent button {
+  margin-top: 10px;
+  font-size: 17px;
+  border-radius: 50px;
+  border: 1px solid black;
+  padding: 10px;
+  background-color: #579bb1;
+  margin-bottom: 10px;
+  color: black;
+  cursor: pointer;
+}
+
+.UserContent .form-div {
+  position: absolute;
+  top: 400px;
+}
+
+.UserContent .pending-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 120px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 10px 8px 20px black;
+}

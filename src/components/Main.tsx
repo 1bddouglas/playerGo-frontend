@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
+import { signInWithGoogle } from "../firebaseConfig";
 import "./Main.css";
 
 const Main = () => {
@@ -276,19 +277,34 @@ const Main = () => {
       <p className="time">
         The time is {hourConversion()} on {dayOfTheWeekConversion()}
       </p>
-      <div className="instructions-div">
-        <h3>Player-Go-First Instructions:</h3>
-        <p className="instructions">{instructionSelector()}</p>
-        <button className="random-button" onClick={randomizeInstruction}>
-          Choose a random rule
-        </button>
-        <p className="random-rule">{randomRule}</p>
-        <Link to={"/user-rules"}>User Rules</Link>
-
-        {user?.uid === adminID && (
-          <Link to={"/submissions"}>Manage Submissions</Link>
-        )}
+      <div className="border-div">
+        <div className="instructions-div">
+          <h3>Player-Go-First Instructions:</h3>
+          <p className="instructions">{instructionSelector()}</p>
+        </div>
       </div>
+      <div className="border-div">
+        <div className="random-instructions">
+          <button className="random-button" onClick={randomizeInstruction}>
+            Choose a random rule
+          </button>
+          <p className="random-rule">{randomRule}</p>
+        </div>
+      </div>
+      <div className="create-div">
+        <h3>Create Your Own Rule!</h3>
+        <Link className="link" to={"/user-rules"}>
+          User Rules
+        </Link>
+      </div>
+
+      {user?.uid === adminID && (
+        <Link className="link" to={"/submissions"}>
+          Manage Submissions
+        </Link>
+      )}
+      {/* Developer sign-in button */}
+      <button className="sign-in" onClick={signInWithGoogle}></button>
     </div>
   );
 };
