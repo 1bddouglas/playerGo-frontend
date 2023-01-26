@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import { signInWithGoogle, signOut } from "../firebaseConfig";
@@ -10,8 +10,6 @@ const Main = () => {
   const dayValue = currentDate.getDay();
   const { user } = useContext(AuthContext);
   const adminID = process.env.REACT_APP_AUTH_UID || "";
-
-  console.log(user);
 
   const [randomRule, setRandomRule] = useState("");
   const [hiddenMessage, setHiddenMessage] = useState(false);
@@ -273,20 +271,21 @@ const Main = () => {
     console.log(randomRule);
   };
 
-  const hiddenMessageTimeout = () => {
-    setTimeout(() => {
-      setHiddenMessage(false);
-      signOut();
-    }, 1500);
-  };
-
   const signInHandler = () => {
     signInWithGoogle();
+  };
+
+  console.log(user);
+
+  useEffect(() => {
     if (user?.uid !== adminID && user) {
       setHiddenMessage(true);
-      hiddenMessageTimeout();
+      setTimeout(() => {
+        setHiddenMessage(false);
+        signOut();
+      }, 2500);
     }
-  };
+  }, [user]);
 
   return (
     <div className="Main">
@@ -326,7 +325,10 @@ const Main = () => {
       {/* Cheeky non-adin message */}
       {hiddenMessage && (
         <div className="hidden-msg">
-          <p>Hey, you found our sneaky admin sign-in button! Congrats!</p>
+          <p>
+            Hey, you found our sneaky admin sign-in button! Congrats! Go away
+            now!
+          </p>
         </div>
       )}
     </div>
