@@ -3,14 +3,8 @@
   flex-direction: column;
   background-color: #e1d7c6;
   height: calc(100vh - 124px);
-}
-
-.Main .everything-but-sign-in {
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  flex: 10;
 }
 
 .Main p {
@@ -90,11 +84,6 @@
   margin-bottom: 10px;
 }
 
-.Main .sign-in-div {
-  margin-bottom: 50px;
-  flex: 1;
-}
-
 .Main .sign-in {
   background-color: #e1d7c6;
   border: none;
@@ -102,4 +91,18 @@
   height: 50px;
   width: 50px;
   cursor: pointer;
+}
+
+.Main .hidden-msg {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 120px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 10px 8px 20px black;
 }

@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
-import { signInWithGoogle } from "../firebaseConfig";
+import { signInWithGoogle, signOut } from "../firebaseConfig";
 import "./Main.css";
 
 const Main = () => {
@@ -14,6 +14,7 @@ const Main = () => {
   console.log(user);
 
   const [randomRule, setRandomRule] = useState("");
+  const [hiddenMessage, setHiddenMessage] = useState(false);
 
   // day number to string name
   const dayOfTheWeekConversion = () => {
@@ -272,43 +273,62 @@ const Main = () => {
     console.log(randomRule);
   };
 
+  const hiddenMessageTimeout = () => {
+    setTimeout(() => {
+      setHiddenMessage(false);
+      signOut();
+    }, 1500);
+  };
+
+  const signInHandler = () => {
+    signInWithGoogle();
+    if (user?.uid !== adminID && user) {
+      setHiddenMessage(true);
+      hiddenMessageTimeout();
+    }
+  };
+
   return (
     <div className="Main">
-      <div className="everything-but-sign-in">
-        <p className="time">
-          The time is {hourConversion()} on {dayOfTheWeekConversion()}
-        </p>
-        <div className="border-div">
-          <div className="instructions-div">
-            <h3>Player-Go-First Instructions:</h3>
-            <p className="instructions">{instructionSelector()}</p>
-          </div>
+      <p className="time">
+        The time is {hourConversion()} on {dayOfTheWeekConversion()}
+      </p>
+      <div className="border-div">
+        <div className="instructions-div">
+          <h3>Player-Go-First Instructions:</h3>
+          <p className="instructions">{instructionSelector()}</p>
         </div>
-        <div className="border-div">
-          <div className="random-instructions">
-            <button className="random-button" onClick={randomizeInstruction}>
-              Choose a random rule
-            </button>
-            <p className="random-rule">{randomRule}</p>
-          </div>
+      </div>
+      <div className="border-div">
+        <div className="random-instructions">
+          <button className="random-button" onClick={randomizeInstruction}>
+            Choose a random rule
+          </button>
+          <p className="random-rule">{randomRule}</p>
         </div>
-        <div className="create-div">
-          <h3>Create Your Own Rule!</h3>
-          <Link className="link" to={"/user-rules"}>
-            User Rules
-          </Link>
-        </div>
+      </div>
+      <div className="create-div">
+        <h3>Create Your Own Rule!</h3>
+        <Link className="link" to={"/user-rules"}>
+          User Rules
+        </Link>
+      </div>
 
-        {user?.uid === adminID && (
-          <Link className="link" to={"/submissions"}>
-            Manage Submissions
-          </Link>
-        )}
-      </div>
+      {user?.uid === adminID && (
+        <Link className="link" to={"/submissions"}>
+          Manage Submissions
+        </Link>
+      )}
+
       {/* Developer sign-in button */}
-      <div className="sign-in-div">
-        <button className="sign-in" onClick={signInWithGoogle}></button>
-      </div>
+      <button className="sign-in" onClick={signInHandler}></button>
+
+      {/* Cheeky non-adin message */}
+      {hiddenMessage && (
+        <div className="hidden-msg">
+          <p>Hey, you found our sneaky admin sign-in button! Congrats!</p>
+        </div>
+      )}
     </div>
   );
 };
