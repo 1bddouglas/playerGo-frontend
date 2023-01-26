@@ -1,12 +1,38 @@
 .SubmissionForm {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 120px;
+  height: 150px;
   width: 300px;
   background-color: white;
   border: 1px solid black;
   border-radius: 8px;
   box-shadow: 10px 8px 20px black;
+}
+
+.SubmissionForm form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* height: 150px;
+  width: 300px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 8px;
+  box-shadow: 10px 8px 20px black; */
+}
+
+.SubmissionForm label {
+  margin-bottom: 5px;
+}
+
+.SubmissionForm .bttn-div {
+  display: flex;
+  justify-content: end;
+}
+
+.SubmissionForm .x-bttn {
+  background-color: white;
+  border: none;
+  border-radius: 0;
+  margin: 10px 15px 0 0;
+  padding: 0;
 }

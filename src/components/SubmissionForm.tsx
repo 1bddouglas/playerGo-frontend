@@ -27,17 +27,24 @@ const SubmissionForm = ({ setShowForm, setShowPending }: Props) => {
   };
 
   return (
-    <form className="SubmissionForm" onSubmit={submitHandler}>
-      <label htmlFor="rule">Add a Rule</label>
-      <input
-        type="text"
-        name="rule"
-        id="rule"
-        value={rule}
-        onChange={(e) => setRule(e.target.value)}
-      />
-      <button>Submit</button>
-    </form>
+    <div className="SubmissionForm">
+      <div className="bttn-div">
+        <button className="x-bttn" onClick={() => setShowForm(false)}>
+          X
+        </button>
+      </div>
+      <form onSubmit={submitHandler}>
+        <label htmlFor="rule">Add a Rule</label>
+        <input
+          type="text"
+          name="rule"
+          id="rule"
+          value={rule}
+          onChange={(e) => setRule(e.target.value)}
+        />
+        <button>Submit</button>
+      </form>
+    </div>
   );
 };
 

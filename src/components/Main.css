@@ -1,11 +1,16 @@
 .Main {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  /* padding-top: 150px; */
   background-color: #e1d7c6;
   height: calc(100vh - 124px);
+}
+
+.Main .everything-but-sign-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  flex: 10;
 }
 
 .Main p {
@@ -21,6 +26,7 @@
   width: 80%;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
+  margin-bottom: 100px;
 }
 .Main .instructions-div {
   display: flex;
@@ -82,6 +88,11 @@
   height: 20px;
   font-style: italic;
   margin-bottom: 10px;
+}
+
+.Main .sign-in-div {
+  margin-bottom: 50px;
+  flex: 1;
 }
 
 .Main .sign-in {

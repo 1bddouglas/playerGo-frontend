@@ -29,13 +29,17 @@ const SingleRule = ({ rule, submissions, setSubmissions }: Props) => {
 
   return (
     <li className="SingleRule">
-      <p>{rule.ruleText}</p>
-      <button className="approve" onClick={approveHandler}>
-        Approve
-      </button>
-      <button className="deny" onClick={denyHandler}>
-        Deny
-      </button>
+      <div>
+        <p>{rule.ruleText}</p>
+      </div>
+      <div>
+        <button className="approve" onClick={approveHandler}>
+          Approve
+        </button>
+        <button className="deny" onClick={denyHandler}>
+          Deny
+        </button>
+      </div>
     </li>
   );
 };

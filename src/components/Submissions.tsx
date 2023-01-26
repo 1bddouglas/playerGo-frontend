@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { signOut } from "../firebaseConfig";
 import Rule from "../models/Rule";
 import { getAllSubmissions } from "../services/submissionAPIService";
@@ -8,6 +9,12 @@ import "./Submissions.css";
 
 const Submissions = () => {
   const [submissions, setSubmissions] = useState<Rule[]>([]);
+  const navigate = useNavigate();
+
+  const signOutButton = () => {
+    signOut();
+    navigate("/");
+  };
 
   useEffect(() => {
     if (submissions) {
@@ -19,7 +26,9 @@ const Submissions = () => {
 
   return (
     <div className="Submissions">
-      <button onClick={signOut}>Sign out</button>
+      <button className="sign-out" onClick={signOutButton}>
+        Admin sign out
+      </button>
       <ul className="submission-list">
         {submissions.map((rule) => (
           <SingleRule

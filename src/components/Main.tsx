@@ -274,37 +274,41 @@ const Main = () => {
 
   return (
     <div className="Main">
-      <p className="time">
-        The time is {hourConversion()} on {dayOfTheWeekConversion()}
-      </p>
-      <div className="border-div">
-        <div className="instructions-div">
-          <h3>Player-Go-First Instructions:</h3>
-          <p className="instructions">{instructionSelector()}</p>
+      <div className="everything-but-sign-in">
+        <p className="time">
+          The time is {hourConversion()} on {dayOfTheWeekConversion()}
+        </p>
+        <div className="border-div">
+          <div className="instructions-div">
+            <h3>Player-Go-First Instructions:</h3>
+            <p className="instructions">{instructionSelector()}</p>
+          </div>
         </div>
-      </div>
-      <div className="border-div">
-        <div className="random-instructions">
-          <button className="random-button" onClick={randomizeInstruction}>
-            Choose a random rule
-          </button>
-          <p className="random-rule">{randomRule}</p>
+        <div className="border-div">
+          <div className="random-instructions">
+            <button className="random-button" onClick={randomizeInstruction}>
+              Choose a random rule
+            </button>
+            <p className="random-rule">{randomRule}</p>
+          </div>
         </div>
-      </div>
-      <div className="create-div">
-        <h3>Create Your Own Rule!</h3>
-        <Link className="link" to={"/user-rules"}>
-          User Rules
-        </Link>
-      </div>
+        <div className="create-div">
+          <h3>Create Your Own Rule!</h3>
+          <Link className="link" to={"/user-rules"}>
+            User Rules
+          </Link>
+        </div>
 
-      {user?.uid === adminID && (
-        <Link className="link" to={"/submissions"}>
-          Manage Submissions
-        </Link>
-      )}
+        {user?.uid === adminID && (
+          <Link className="link" to={"/submissions"}>
+            Manage Submissions
+          </Link>
+        )}
+      </div>
       {/* Developer sign-in button */}
-      <button className="sign-in" onClick={signInWithGoogle}></button>
+      <div className="sign-in-div">
+        <button className="sign-in" onClick={signInWithGoogle}></button>
+      </div>
     </div>
   );
 };

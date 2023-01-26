@@ -1,0 +1,28 @@
+.Submissions {
+  display: flex;
+  flex-direction: column;
+  background-color: #e1d7c6;
+  height: calc(100vh - 124px);
+}
+
+.Submissions .sign-out {
+  width: 150px;
+  margin: 10px;
+}
+
+.Submissions ul {
+  padding: 40px;
+}
+
+.Submissions li {
+  margin: 10px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  border-bottom: 1px solid black;
+}
+
+.Submissions p {
+  margin-right: 20px;
+}
