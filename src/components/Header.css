@@ -1,13 +1,25 @@
 .Header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   background-color: #579bb1;
   border-bottom: 5px solid #f8f4ea;
 }
 
-.Header .logo {
+.Header img {
+  width: 30px;
+  position: absolute;
+  top: 40px;
+  right: 15px;
+}
+.Header .header-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Header .link {
   text-decoration: none;
   color: black;
 }
@@ -18,4 +30,36 @@
 
 .Header h2 {
   padding-bottom: 10px;
+  font-style: italic;
+}
+
+.Header .visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s linear;
+  width: 100vw;
+  position: absolute;
+  top: 124px;
+}
+.Header .hidden {
+  visibility: hidden;
+  opacity: 0;
+
+  width: 100vw;
+  position: absolute;
+  top: 124px;
+}
+
+.Header ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background-color: #f8f4ea;
+  justify-content: space-around;
+  padding-bottom: 5px;
+}
+
+.Header .quick-transition {
+  visibility: hidden;
 }

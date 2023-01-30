@@ -292,13 +292,13 @@ const Main = () => {
       <p className="time">
         The time is {hourConversion()} on {dayOfTheWeekConversion()}
       </p>
-      <div className="border-div">
+      <div className="border-div one">
         <div className="instructions-div">
-          <h3>Player-Go-First Instructions:</h3>
+          <h3>First Player Selection:</h3>
           <p className="instructions">{instructionSelector()}</p>
         </div>
       </div>
-      <div className="border-div">
+      <div className="border-div two">
         <div className="random-instructions">
           <button className="random-button" onClick={randomizeInstruction}>
             Choose a random rule

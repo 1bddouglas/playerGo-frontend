@@ -13,6 +13,7 @@
 }
 
 .Main .time {
+  padding-top: 25px;
   font-size: 30px;
 }
 
@@ -105,4 +106,22 @@
   border: 1px solid black;
   border-radius: 8px;
   box-shadow: 10px 8px 20px black;
+}
+
+@media only screen and (max-width: 768px) {
+  .Main .border-div {
+    margin: 0;
+    padding-bottom: 20px;
+  }
+  .Main .one {
+    border-bottom: none;
+  }
+  .Main .hidden-msg {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+  .Main .time {
+    margin-top: 5px;
+    font-size: 24px;
+  }
 }

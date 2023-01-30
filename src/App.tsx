@@ -11,6 +11,7 @@ import Main from "./components/Main";
 import Header from "./components/Header";
 import Submissions from "./components/Submissions";
 import UserContent from "./components/UserContent";
+import About from "./components/About";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/submissions" element={<Submissions />} />
           <Route path="/user-rules" element={<UserContent />} />
+          <Route path="/about" element={<About />} />
           <Route path="*" element={<Navigate to={"/"} />} />
         </Routes>
       </Router>
