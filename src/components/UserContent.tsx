@@ -20,6 +20,7 @@ const UserContent = () => {
   return (
     <div className="UserContent">
       <button
+        className="form-button"
         onClick={() => {
           setShowForm(!showForm);
         }}

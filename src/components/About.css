@@ -1,0 +1,41 @@
+.About {
+  background-color: #e1d7c6;
+  height: 100vh;
+  padding: 10px;
+}
+
+.About h2 {
+  margin: 30px 0;
+  text-align: center;
+}
+
+.About p {
+  text-indent: 30px;
+  margin: 10px;
+}
+
+.About img {
+  width: 500px;
+}
+
+.About .PG2-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.About .PG2-div p {
+  text-indent: 0;
+  font-size: small;
+}
+
+@media only screen and (max-width: 768px) {
+  .About {
+    height: 100%;
+  }
+  .About img {
+    width: 300px;
+  }
+}
